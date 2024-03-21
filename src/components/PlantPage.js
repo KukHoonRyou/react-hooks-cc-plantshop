@@ -5,21 +5,18 @@ import Search from "./Search";
 
 /*
 4. I can search for plants by their name and see a filtered list of plants.
-    4-1 Create search state in closest common ancestor (App) (??)
+    4-1 Create search state in closest common ancestor (??)
 */
 
-function PlantPage({updateSearch}) {
+function PlantPage() {
 
-  const[search, setSearch] = useState("") 
-
-  
-
+  const[search, setSearch] = useState("")// create closest ancestor component
 
   return (
     <main>
       <NewPlantForm />
-      <Search updateSearch = {updateSearch}/>
-      <PlantList search = {search} setSearch = {setSearch}/>
+      <Search search={search} setSearch={setSearch}/>
+      <PlantList search = {search}/>
     </main>
   );
 }

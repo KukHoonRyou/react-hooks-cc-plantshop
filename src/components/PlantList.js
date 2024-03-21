@@ -26,9 +26,14 @@ function PlantList({search}) {
     .then(data => setListings(data))
   }, []) //dependency(??) stop getting plants
   
-    const filteredListings = listings.filter(plants => {
+
+  /*
+4. I can search for plants by their name and see a filtered list of plants.
+    4-3 can search capital or lowercase letter 
+*/
+    const filteredListings = listings.filter(item => {
       const lowerSearch = search.toLowerCase()
-      const lowerPlants = plants.name.toLowerCase()
+      const lowerPlants = item.name.toLowerCase()
       if(lowerPlants.includes(lowerSearch)) {
         return true
       } else {
@@ -54,7 +59,7 @@ function PlantList({search}) {
   }
 
   return (
-    <ul className="cards" key="id">
+    <ul className="cards">
       {
         filteredListings.map(plants =>
           <PlantCard 

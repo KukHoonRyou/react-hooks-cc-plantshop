@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="app">
       <Header />
-      <PlantPage updateSearch = {(value) => {setSearch(value)}}/>
+      <PlantPage updateSearch = {(value) => {setSearch(value)}} search = {search}/>
     </div>
   );
 }

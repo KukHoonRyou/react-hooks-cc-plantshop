@@ -9,9 +9,18 @@ import React, {useState} from "react";
   
 */
 
+/*
+4. I can search for plants by their name and see a filtered list of plants.
+    4-2 create event handler
+*/
 
-function Search({updateSearch}) {
+function Search({search, setSearch}) {
 
+  const handleInput = e => {
+    setSearch(e.target.value);
+  }
+
+  /* 
   const initialForm = {
     search: ' '
   }
@@ -30,21 +39,19 @@ function Search({updateSearch}) {
       ...form, //all the things in form array
       [e.target.name]: e.target.value
     })
-  }
+  */
 
-  return (
+  return (    
     <div className="searchbar">
-      <form  onSubmit = {handleSubmit}>
       <label htmlFor="search">Search Plants:</label>
-      <input 
-        type="text"
-        id="search"
-        name="search" // append name
-        value={form.search} //append value
-        placeholder="Type a name to search..."
-        onChange={(e) => handleChange(e)} //pass event handler
-      />
-      </form>
+        <input 
+          type="text"
+          id="search"
+          name="search"
+          value={search} //add value
+          placeholder="Type a name to search..."
+          onChange={handleInput} //pass event handler
+        />
     </div>
   );
 }
